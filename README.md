@@ -5,6 +5,8 @@
 
 Полный отчёт с выводами команд, профилированием и выводами: [`report/report.pdf`](report/report.pdf).
 
+Репозиторий: https://github.com/nalivo4ka/DataEngeneering-hw3-mapreduce-rustfs
+
 ## Что внутри
 
 | Файл | Этап | Что делает |
