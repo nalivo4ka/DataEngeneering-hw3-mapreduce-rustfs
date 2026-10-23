@@ -1,0 +1,11 @@
+splits (range requests): 26, bytes read from S3: 847,619,384
+map tasks ok: 26, retries: 0
+rows parsed: 229,388, variant rows: 54,607, with skills: 33,662
+
+k=1: distinct=8,369 occurrences=231,216 (sum C(n_i,1) over vacancies = 231,216)
+
+k=2: distinct=152,112 occurrences=1,003,894 (sum C(n_i,2) over vacancies = 1,003,894)
+
+k=3: distinct=1,098,033 occurrences=3,871,492 (sum C(n_i,3) over vacancies = 3,871,492)
+
+timings: map+shuffle 8.85 s, reduce 2.28 s, write results to S3 3.25 s

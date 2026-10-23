@@ -1,0 +1,9 @@
+source: parquet; vacancies with skills: 33,662; (vacancy, skill) rows: 231,216
+
+k=1: distinct=8,369 occurrences=231,216
+
+k=2: distinct=152,112 occurrences=1,003,894
+
+k=3: distinct=1,098,033 occurrences=3,871,492
+
+timings: read+filter+explode 0.21 s, k=1 count+write 0.05 s, k=2 count+write 0.50 s, k=3 count+write 1.79 s

@@ -1,0 +1,40 @@
+$ python duckdb_counts.py
+source: csv; vacancies with skills: 33,662; (vacancy, skill) rows: 231,216
+
+k=1: distinct=8,369 occurrences=231,216
+   10653  sql
+    8157  аналитическое мышление
+    6464  bpmn
+    5894  бизнес-анализ
+    5226  системный анализ
+    5062  анализ данных
+    4767  uml
+    4452  разработка технических заданий
+    4305  работа с большим объемом информации
+    3881  аналитика
+
+k=2: distinct=152,112 occurrences=1,003,894
+    3880  bpmn + uml
+    2966  bpmn + sql
+    2681  sql + uml
+    2671  python + sql
+    2507  анализ данных + аналитическое мышление
+    2442  sql + системный анализ
+    2238  bpmn + системный анализ
+    2236  аналитическое мышление + работа с большим объемом информации
+    2055  uml + системный анализ
+    2050  sql + аналитическое мышление
+
+k=3: distinct=1,098,033 occurrences=3,871,492
+    2201  bpmn + sql + uml
+    1699  bpmn + uml + системный анализ
+    1387  bpmn + rest + uml
+    1266  bpmn + sql + системный анализ
+    1236  sql + uml + системный анализ
+    1213  rest + sql + uml
+    1186  bpmn + rest + sql
+    1012  rest + soap + sql
+    1002  анализ данных + аналитическое мышление + работа с большим объемом информации
+     933  bpmn + uml + бизнес-анализ
+
+timings: read+filter+explode 0.98 s, k=1 count+write 0.03 s, k=2 count+write 0.36 s, k=3 count+write 1.44 s

@@ -1,0 +1,12 @@
+$ python verify.py
+k=1: MapReduce keys=8,369 sum=231,216 md5=9ade43883f080368ed95e9be8c12e0a4
+     DuckDB    keys=8,369 sum=231,216 md5=9ade43883f080368ed95e9be8c12e0a4
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+k=2: MapReduce keys=152,112 sum=1,003,894 md5=2a2fd9f522b48fa3b5ddab798a1c6d9d
+     DuckDB    keys=152,112 sum=1,003,894 md5=2a2fd9f522b48fa3b5ddab798a1c6d9d
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+k=3: MapReduce keys=1,098,033 sum=3,871,492 md5=076e9954c9f49d38bf94335e7064edcd
+     DuckDB    keys=1,098,033 sum=3,871,492 md5=076e9954c9f49d38bf94335e7064edcd
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+
+RESULT: all three stack sizes are identical

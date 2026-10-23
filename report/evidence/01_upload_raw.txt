@@ -1,0 +1,7 @@
+$ python upload_raw.py
+bucket      : hh-lake
+object      : raw/it_vacancies_2024.csv
+size bytes  : 847,619,384 (local 847,619,384)
+etag        : 45041a115287e29b41fc8f82818ec5a6
+sha256 local: 303db922b541e4440906f5a7e8be32fb55e8808f950ffddb8c272f1548212a65
+OK: object in hh-lake matches the local file

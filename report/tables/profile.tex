@@ -1,0 +1,5 @@
+MapReduce naive (1 worker, no combiner) & 20,98 / 20,86 / 20,76 & \textbf{20,87} & 1\,240 / 1\,242 / 1\,222 & \textbf{1\,234} \\
+MapReduce + combiner (1 worker) & 16,41 / 16,22 / 16,28 & \textbf{16,30} & 757 / 748 / 751 & \textbf{752} \\
+MapReduce + combiner (12 workers) & 10,90 / 10,89 / 11,10 & \textbf{10,96} & 1\,822 / 1\,772 / 1\,876 & \textbf{1\,823} \\
+DuckDB, CSV from S3 & 3,21 / 3,69 / 4,05 & \textbf{3,65} & 1\,456 / 1\,461 / 1\,463 & \textbf{1\,460} \\
+DuckDB, Parquet from S3 & 2,88 / 3,20 / 3,01 & \textbf{3,03} & 599 / 611 / 608 & \textbf{606} \\

@@ -1,0 +1,3 @@
+$ python make_parquet.py
+CSV     s3://hh-lake/raw/it_vacancies_2024.csv: 847,619,384 bytes
+Parquet s3://hh-lake/curated/it_vacancies_2024.parquet: 169,030,666 bytes (5.0x smaller), 229,388 rows, written in 4.3 s

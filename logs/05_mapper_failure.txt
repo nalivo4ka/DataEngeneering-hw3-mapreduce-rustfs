@@ -1,0 +1,35 @@
+$ python mapreduce.py --fail-map-task 5 --top 3
+[master] map task 5 failed (attempt 1): injected failure in map task 5 -> retry
+splits (range requests): 26, bytes read from S3: 847,619,384
+map tasks ok: 26, retries: 1
+rows parsed: 229,388, variant rows: 54,607, with skills: 33,662
+
+k=1: distinct=8,369 occurrences=231,216 (sum C(n_i,1) over vacancies = 231,216)
+   10653  sql
+    8157  аналитическое мышление
+    6464  bpmn
+
+k=2: distinct=152,112 occurrences=1,003,894 (sum C(n_i,2) over vacancies = 1,003,894)
+    3880  bpmn + uml
+    2966  bpmn + sql
+    2681  sql + uml
+
+k=3: distinct=1,098,033 occurrences=3,871,492 (sum C(n_i,3) over vacancies = 3,871,492)
+    2201  bpmn + sql + uml
+    1699  bpmn + uml + системный анализ
+    1387  bpmn + rest + uml
+
+timings: map+shuffle 3.63 s, reduce 1.67 s, write results to S3 3.03 s
+
+$ python verify.py
+k=1: MapReduce keys=8,369 sum=231,216 md5=9ade43883f080368ed95e9be8c12e0a4
+     DuckDB    keys=8,369 sum=231,216 md5=9ade43883f080368ed95e9be8c12e0a4
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+k=2: MapReduce keys=152,112 sum=1,003,894 md5=2a2fd9f522b48fa3b5ddab798a1c6d9d
+     DuckDB    keys=152,112 sum=1,003,894 md5=2a2fd9f522b48fa3b5ddab798a1c6d9d
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+k=3: MapReduce keys=1,098,033 sum=3,871,492 md5=076e9954c9f49d38bf94335e7064edcd
+     DuckDB    keys=1,098,033 sum=3,871,492 md5=076e9954c9f49d38bf94335e7064edcd
+     rows only in MapReduce: 0, only in DuckDB: 0 -> MATCH
+
+RESULT: all three stack sizes are identical

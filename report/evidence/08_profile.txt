@@ -1,0 +1,23 @@
+$ python profile_runs.py
+MapReduce naive (1 worker, no combiner)    run 1:   20.98 s, peak   1239.8 MB, exit 0
+MapReduce naive (1 worker, no combiner)    run 2:   20.86 s, peak   1241.8 MB, exit 0
+MapReduce naive (1 worker, no combiner)    run 3:   20.76 s, peak   1221.5 MB, exit 0
+MapReduce + combiner (1 worker)            run 1:   16.41 s, peak    756.9 MB, exit 0
+MapReduce + combiner (1 worker)            run 2:   16.22 s, peak    747.8 MB, exit 0
+MapReduce + combiner (1 worker)            run 3:   16.28 s, peak    750.8 MB, exit 0
+MapReduce + combiner (12 workers)          run 1:   10.90 s, peak   1821.8 MB, exit 0
+MapReduce + combiner (12 workers)          run 2:   10.89 s, peak   1772.0 MB, exit 0
+MapReduce + combiner (12 workers)          run 3:   11.10 s, peak   1876.0 MB, exit 0
+DuckDB, CSV from S3                        run 1:    3.21 s, peak   1456.5 MB, exit 0
+DuckDB, CSV from S3                        run 2:    3.69 s, peak   1460.7 MB, exit 0
+DuckDB, CSV from S3                        run 3:    4.05 s, peak   1463.1 MB, exit 0
+DuckDB, Parquet from S3                    run 1:    2.88 s, peak    598.6 MB, exit 0
+DuckDB, Parquet from S3                    run 2:    3.20 s, peak    610.7 MB, exit 0
+DuckDB, Parquet from S3                    run 3:    3.01 s, peak    608.5 MB, exit 0
+
+configuration                               time mean     min     max  peak MB mean      max
+MapReduce naive (1 worker, no combiner)         20.87   20.76   20.98        1234.4   1241.8
+MapReduce + combiner (1 worker)                 16.30   16.22   16.41         751.8    756.9
+MapReduce + combiner (12 workers)               10.96   10.89   11.10        1823.3   1876.0
+DuckDB, CSV from S3                              3.65    3.21    4.05        1460.1   1463.1
+DuckDB, Parquet from S3                          3.03    2.88    3.20         605.9    610.7

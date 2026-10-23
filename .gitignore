@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+scratch/
+report/*.aux
+report/*.log
+report/*.out
+report/*.fls
+report/*.fdb_latexmk
+report/*.xdv
+report/*.synctex.gz
+report/*.listing
+report/_minted*/
+report/_*
+report/build.log
+report/pg-*.png
+report/sheet_*.png

@@ -1,0 +1,107 @@
+[
+ {
+  "config": "MapReduce naive (1 worker, no combiner)",
+  "run": 1,
+  "seconds": 20.98,
+  "peak_mb": 1239.8,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce naive (1 worker, no combiner)",
+  "run": 2,
+  "seconds": 20.86,
+  "peak_mb": 1241.8,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce naive (1 worker, no combiner)",
+  "run": 3,
+  "seconds": 20.76,
+  "peak_mb": 1221.5,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (1 worker)",
+  "run": 1,
+  "seconds": 16.41,
+  "peak_mb": 756.9,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (1 worker)",
+  "run": 2,
+  "seconds": 16.22,
+  "peak_mb": 747.8,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (1 worker)",
+  "run": 3,
+  "seconds": 16.28,
+  "peak_mb": 750.8,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (12 workers)",
+  "run": 1,
+  "seconds": 10.9,
+  "peak_mb": 1821.8,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (12 workers)",
+  "run": 2,
+  "seconds": 10.89,
+  "peak_mb": 1772.0,
+  "exit_code": 0
+ },
+ {
+  "config": "MapReduce + combiner (12 workers)",
+  "run": 3,
+  "seconds": 11.1,
+  "peak_mb": 1876.0,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, CSV from S3",
+  "run": 1,
+  "seconds": 3.21,
+  "peak_mb": 1456.5,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, CSV from S3",
+  "run": 2,
+  "seconds": 3.69,
+  "peak_mb": 1460.7,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, CSV from S3",
+  "run": 3,
+  "seconds": 4.05,
+  "peak_mb": 1463.1,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, Parquet from S3",
+  "run": 1,
+  "seconds": 2.88,
+  "peak_mb": 598.6,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, Parquet from S3",
+  "run": 2,
+  "seconds": 3.2,
+  "peak_mb": 610.7,
+  "exit_code": 0
+ },
+ {
+  "config": "DuckDB, Parquet from S3",
+  "run": 3,
+  "seconds": 3.01,
+  "peak_mb": 608.5,
+  "exit_code": 0
+ }
+]
