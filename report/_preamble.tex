@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article}
+\input{D:/LaTeX/preambles/MainPreamble}
+
+\geometry{top=2.4cm, bottom=2cm, left=1.9cm, right=1.9cm, headheight=14pt, headsep=0.45cm}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+% ---------- палитра ----------
+\definecolor{accent}{HTML}{1B4F9C}
+\definecolor{accentdark}{HTML}{123A75}
+\definecolor{accentwarm}{HTML}{E07B00}
+\definecolor{infobg}{HTML}{EAF1FB}
+\definecolor{warnbg}{HTML}{FFF1DC}
+\definecolor{greenbg}{HTML}{E6F5EA}
+\definecolor{greenline}{HTML}{2E8B57}
+\definecolor{okbg}{HTML}{DFF3E3}
+\definecolor{badbg}{HTML}{FBE0E0}
+\definecolor{termbg}{HTML}{1E2330}
+\definecolor{termfg}{HTML}{D6DEEB}
+\definecolor{termframe}{HTML}{3B4260}
+\definecolor{termtitle}{HTML}{2B3150}
+\definecolor{termtitlefg}{HTML}{C9D3F2}
+\definecolor{termcmd}{HTML}{FFD479}
+\definecolor{termok}{HTML}{8BE28B}
+\definecolor{termbad}{HTML}{FF7B7B}
+\definecolor{termhead}{HTML}{7FB5FF}
+
+% ---------- заголовки, списки, колонтитулы ----------
+\titlespacing*{\section}{0pt}{2.6ex plus .4ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus .3ex}{0.8ex}
+\titleformat{\section}{\sffamily\Large\bfseries\color{accent}}{\thesection}{0.6em}{}[{\color{accent!30}\titlerule[1.2pt]}]
+\titleformat{\subsection}{\sffamily\large\bfseries\color{accentdark}}{\thesubsection}{0.6em}{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.18}
+\setlist[itemize]{leftmargin=1.3em, topsep=2pt, itemsep=2pt, parsep=0pt, label=\textcolor{accent}{\textbullet}}
+\setlist[enumerate]{leftmargin=1.7em, topsep=2pt, itemsep=2pt, parsep=0pt, label=\textcolor{accent}{\bfseries\arabic*.}}
+\captionsetup{font=small, labelfont={bf,color=accent}, labelsep=period, justification=centering, skip=5pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\color{black!55}Домашнее задание · распределённое хранилище RustFS}
+\fancyhead[R]{\sffamily\small\color{black!55}Erasure Coding 4+4 · 8 папок-дисков}
+\fancyfoot[C]{\sffamily\small\color{black!55}\thepage}
+\renewcommand{\headrule}{\color{accent!40}\hrule width\headwidth height 0.5pt}
+
+% ---------- терминальные вставки ----------
+\lstdefinestyle{term}{
+  basicstyle=\ttfamily\scriptsize\color{termfg}, breaklines=true, columns=fullflexible, keepspaces=true,
+  showstringspaces=false, breakindent=0pt, upquote=false, aboveskip=0pt, belowskip=0pt,
+  literate={\$\ }{{\textcolor{termcmd}{\bfseries\$}\ }}2 {===}{{\textcolor{termhead}{\bfseries===}}}3,
+  emph={OK,RECOVERABLE}, emphstyle=\color{termok}\bfseries,
+  emph={[2]FAILED,LOST}, emphstyle={[2]\color{termbad}\bfseries}
+}
+\newcommand{\termdots}{\textcolor[HTML]{FF5F56}{\large$\bullet$}\hspace{1pt}\textcolor[HTML]{FFBD2E}{\large$\bullet$}\hspace{1pt}\textcolor[HTML]{27C93F}{\large$\bullet$}}
+\tcbset{termstyle/.style={enhanced, breakable, listing engine=listings, listing only,
+  colback=termbg, coltext=termfg, colframe=termframe, colbacktitle=termtitle, coltitle=termtitlefg,
+  fonttitle=\sffamily\footnotesize\bfseries, arc=2.2mm, boxrule=0.6pt, left=2.2mm, right=2.2mm, top=1.4mm, bottom=1.4mm,
+  toptitle=1.2mm, bottomtitle=1.2mm, before skip=9pt, after skip=9pt, listing options={style=term}}}
+\newcommand{\evidence}[2]{\tcbinputlisting{termstyle, title={#2\hfill\termdots}, listing file={evidence/#1}}}
+\newtcblisting{termbox}[1]{termstyle, title={#1\hfill\termdots}}
+
+% ---------- плашки ----------
+\tcbset{notebox/.style={enhanced, breakable, frame hidden, arc=1.5mm, left=3.2mm, right=3mm, top=2mm, bottom=2mm,
+  before skip=7pt, after skip=7pt}}
+\newtcolorbox{callout}{notebox, colback=infobg, borderline west={3pt}{0pt}{accent}}
+\newtcolorbox{warnbox}{notebox, colback=warnbg, borderline west={3pt}{0pt}{accentwarm}}
+\newtcolorbox{greenbox}{notebox, colback=greenbg, borderline west={3pt}{0pt}{greenline}}
+\newtcolorbox{infobox}{notebox, colback=black!5, borderline west={3pt}{0pt}{black!40}}
+
+% ---------- таблицы и скриншоты ----------
+\newcommand{\thc}[1]{\textcolor{white}{\sffamily\bfseries #1}}
+\newcommand{\framedgraphic}[2][]{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.7pt}\fcolorbox{accent!35}{white}{\includegraphics[#1]{#2}}}}
+
+\tikzset{
+  diskD/.style={draw=accent!70, rounded corners=1.5pt, fill=accent!14, minimum width=1.75cm, minimum height=0.9cm, align=center, font=\scriptsize},
+  diskP/.style={draw=accentwarm!80, rounded corners=1.5pt, fill=accentwarm!22, minimum width=1.75cm, minimum height=0.9cm, align=center, font=\scriptsize},
+  diskX/.style={draw=red!60!black, rounded corners=1.5pt, fill=red!22, minimum width=1.75cm, minimum height=0.9cm, align=center, font=\scriptsize},
+  stepbox/.style={draw=accent!60, rounded corners=2pt, align=center, font=\footnotesize, inner sep=4pt, fill=accent!7},
+  fl/.style={-{Latex[length=2mm]}, thick, draw=accent!80},
+}
+

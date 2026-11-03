@@ -10,7 +10,6 @@ report/*.xdv
 report/*.synctex.gz
 report/*.listing
 report/_minted*/
-report/_*
 report/build.log
 report/pg-*.png
 report/sheet_*.png
